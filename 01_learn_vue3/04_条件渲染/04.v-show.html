@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+  </div>
+<template id="my-app">
+<template v-if="isShowHa">
+  <h1 v-if="isShowHa">hhhhh1</h1>
+
+  <h1 v-show="isShowHa"> hehe</h1>
+
+</template>
+  <script src="../js/vue.js"></script>
+  <script>
+    const App={
+      template:'#my-app',
+      data(){
+        return{
+          
+          isShowHa:true
+        }
+      },
+      methods: {
+        
+      },
+    }
+
+    Vue.createApp(App).mount('#app')
+
+    //Javascript条件判断
+    if(true){
+
+    }
+  </script>
+</body>
+</html>

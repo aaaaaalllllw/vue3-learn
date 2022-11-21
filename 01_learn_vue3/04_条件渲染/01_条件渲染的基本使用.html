@@ -6,24 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<style>
-  .area{
-    width: 100px;
-    height: 100px;
-    background-color: red;
-  }
-</style>
 <body>
   <div id="app">
   </div>
 <template id="my-app">
-  <div @click="divClick">
-   <button @click.stop="btnClick"></button>
-   <!-- 绑定一个表达式 -->
-   <button @click="counter++"></button>
-    <!-- 绑定一个对象 -->
-    <div class="area" v-on="{click:btnClick,mousemove:mouseMove}"> </div>
-  </div>
+  <h2 v-if="isShow">哈哈哈</h2>
+  <button @click="toggle">点击</button>
 </template>
   <script src="../js/vue.js"></script>
   <script>
@@ -32,20 +20,22 @@
       data(){
         return{
           message:'Hello World',
-          counter:100
+          isShow:true
         }
       },
       methods: {
-        divClick(){
-          console.log('divClick');
-        },
-        btnClick(){
-          console.log('btnClick');
+        toggle(){
+            this.isShow=!this.isShow
         }
       },
     }
 
     Vue.createApp(App).mount('#app')
+
+    //Javascript条件判断
+    if(true){
+
+    }
   </script>
 </body>
 </html>

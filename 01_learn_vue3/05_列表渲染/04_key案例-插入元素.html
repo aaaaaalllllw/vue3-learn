@@ -6,24 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<style>
-  .area{
-    width: 100px;
-    height: 100px;
-    background-color: red;
-  }
-</style>
 <body>
   <div id="app">
   </div>
 <template id="my-app">
-  <div @click="divClick">
-   <button @click.stop="btnClick"></button>
-   <!-- 绑定一个表达式 -->
-   <button @click="counter++"></button>
-    <!-- 绑定一个对象 -->
-    <div class="area" v-on="{click:btnClick,mousemove:mouseMove}"> </div>
-  </div>
+    <ul>
+        <li v-for="letter in letters" :key="">{{letter}}</li>
+    </ul>
+    <button @click="insertF()">添加F</button>
 </template>
   <script src="../js/vue.js"></script>
   <script>
@@ -31,21 +21,18 @@
       template:'#my-app',
       data(){
         return{
-          message:'Hello World',
-          counter:100
+          letters:['a','b','c','d']
         }
       },
       methods: {
-        divClick(){
-          console.log('divClick');
-        },
-        btnClick(){
-          console.log('btnClick');
+        insertF(){
+            this.letterss.splice(2,0,'f')
         }
       },
     }
 
     Vue.createApp(App).mount('#app')
+
   </script>
 </body>
 </html>

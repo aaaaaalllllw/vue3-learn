@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+  </div>
+<template id="my-app">
+  <button @click="changeFirstName">点击修改name</button>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+</template>
+  <script src="../js/vue.js"></script>
+  <script>
+    const App={
+      template:'#my-app',
+      data(){
+        return{
+          firstName:'Kobe',
+          lastName:'Bryant',
+          score:80,
+          message:"Hellor World"
+        }
+      },
+      methods: {
+        getFullName(){
+        console.log('method')
+          return this.firstName+" "+this.lastName
+        },
+        changeFirstName(){
+          this.firstName='coder'
+        }
+      },
+      computed:{
+        //定义了一个计算属性叫fullName
+        fullName(){
+          console.log("computed的fullName中的计算属性 ")
+          return this.firstName+" "+this.lastName
+        },
+        result(){
+          return this.score>=60?'及格':'不及格'
+        },
+        reverseMessage(){
+          return this.message.split(" ").reverse().join(" ")
+        } 
+
+      }
+    }
+
+    Vue.createApp(App).mount('#app')
+
+  </script>
+</body>
+</html>
