@@ -12,9 +12,15 @@
 <template id="my-app">
     <h3>我是标签</h3>
     <component-a></component-a>
+    <component-b></component-b>
 </template>
-<template id="component-a">
+<template id="component-a"> 
     <h2>我是component-a组件</h2>
+    <h2>{{title}}</h2>
+    <button @click="click">点击</button>
+</template>
+<template id="component-b">
+  bbb
 </template>
   <script src="../js/vue.js"></script>
   <script>
@@ -29,7 +35,20 @@
   //使用app注册一个全局租价
   //全局组件：意味这注册这个组件可以在任何组件模板中使用
   app.component("component-a" ,{
-    template:`<h1>我是component-a组件</h1>`
+    template:"#component-a",
+     data(){
+      return{
+        title:"我是吊梯"
+      }
+    },
+    methods:{
+      click(){
+        console.log('dianji')
+      }
+    }
+  })
+  app.component('component-b',{
+    template:"#component-b"
   })
   app.mount('#app')
 
